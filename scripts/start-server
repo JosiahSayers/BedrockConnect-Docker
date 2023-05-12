@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Starting BedrockConnect"
+cd /BedrockConnect
+java -jar bedrock_connect.jar nodb=true
