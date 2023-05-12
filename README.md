@@ -1,6 +1,6 @@
 # BedrockConnect-Docker
 
-This image will download the latest BedrockConnect release and run it within a docker container. This allows you to start up your own local instance of BedrockConnect without any setup on your computer. No need to install and setup the Java Development Kit or Runtime.
+This image will download the latest [Pugmatt/BedrockConnect](https://github.com/Pugmatt/BedrockConnect) release and run it within a docker container. This allows you to start up your own local instance of BedrockConnect without any setup on your computer. No need to install and setup the Java Development Kit or Runtime.
 
 ## Usage
 
