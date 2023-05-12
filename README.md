@@ -7,5 +7,5 @@ This image will download the latest BedrockConnect release and run it within a d
 Run this command on a machine with docker installed to start up BedrockConnect!
 
 ```shell
-docker run -it -p 19132:19132 josiahsayers15/bedrockconnect
+docker run --rm -it -v BedrockConnect:/BedrockConnect/cache -p 19132:19132 josiahsayers15/bedrockconnect
 ```

@@ -1,5 +1,25 @@
 #!/bin/bash
 
-echo "Downloading the latest BedrockConnect release"
-cd /BedrockConnect
-curl -L https://github.com/Pugmatt/BedrockConnect/releases/latest/download/BedrockConnect-1.0-SNAPSHOT.jar --output bedrock_connect.jar
+cd /BedrockConnect/cache
+
+newest_release=$(curl -s -i https://github.com/Pugmatt/BedrockConnect/releases/latest | grep location | awk -F / '{print $NF}') > /dev/null
+
+version_file=./downloaded_version
+if [ -f downloaded_version ]; then
+  downloaded_release=$(cat downloaded_version)
+else
+  echo "" >> downloaded_version
+  downloaded_release=""
+fi
+
+if [ "$newest_release" = "$downloaded_release" ]; then
+  echo -e "\nNewest release already downloaded"
+else
+  echo -e "\nDownloading the latest BedrockConnect release"
+  echo "Currently Downloaded: $downloaded_release"
+  echo "Newest Release: $newest_release"
+  echo -e "\n"
+  rm -f downloaded_version
+  echo $newest_release >> ./downloaded_version
+  curl -L https://github.com/Pugmatt/BedrockConnect/releases/latest/download/BedrockConnect-1.0-SNAPSHOT.jar --output bedrock_connect.jar
+fi
